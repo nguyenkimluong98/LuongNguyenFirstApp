@@ -1,4 +1,4 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
+import { AppRegistry } from "react-native";
+import Splash from "./src/screens/Splash";
 
-AppRegistry.registerComponent('LuongNguyenFirstApp', () => App);
+AppRegistry.registerComponent("LuongNguyenFirstApp", () => Splash);

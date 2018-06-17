@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, TouchableOpacity, StatusBar } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, StatusBar, TouchableWithoutFeedback, Keyboard } from "react-native";
 
 import Logo from "../components/Logo";
 import Form from "../components/Form";
@@ -18,17 +18,19 @@ class Login extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <StatusBar backgroundColor="#1c313a" barStyle="light-content" />
-        <Logo />
-        <Form type="Login" navigation={this.props.navigation} setShowKeyboard={this.setShowKeyboard.bind(this)} />
-        <View style={styles.signupTextContent}>
-          <Text style={styles.notifyText}>Don't have an account yet? </Text>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("SignUp")}>
-            <Text style={styles.signupText}> Sign Up</Text>
-          </TouchableOpacity>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <StatusBar backgroundColor="#1c313a" barStyle="light-content" />
+          <Logo />
+          <Form type="Login" navigation={this.props.navigation} setShowKeyboard={this.setShowKeyboard.bind(this)} />
+          <View style={styles.signupTextContent}>
+            <Text style={styles.notifyText}>Don't have an account yet? </Text>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("SignUp")}>
+              <Text style={styles.signupText}> Sign Up</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
