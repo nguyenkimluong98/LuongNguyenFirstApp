@@ -5,8 +5,8 @@ class Logo extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image style={styles.logo} source={require("../images/IconLogo.png")} />
-        <Text style={styles.title}>Luong Nguyen's Awsome App</Text>
+        <Image style={styles.logo} source={require("../assets/images/IconLogo.png")} />
+        <Text style={styles.title}>{this.props.title}</Text>
       </View>
     );
   }
