@@ -1,0 +1,51 @@
+<ScrollView>
+    <View style={{ flexDirection: "row" }}>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/cacmoncom.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/cacmoncanh.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/monnuong.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+    </View>
+    <View style={{ flexDirection: "row" }}>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/ngucoc.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/monchay.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/raucuqua.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+    </View>
+    <View style={{ flexDirection: "row" }}>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/haisan.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/cacmonthit.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/cacmonsalad.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+    </View>
+    <View style={{ flexDirection: "row" }}>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/cacmonmy.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/cacloaibanh.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/fastfood.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+    </View>
+    <View style={{ flexDirection: "row" }}>
+      <TouchableOpacity>
+        <Image source={require("../assets/images/douong.jpg")} style={styles.itemsImage} />
+      </TouchableOpacity>
+    </View>
+  </ScrollView>

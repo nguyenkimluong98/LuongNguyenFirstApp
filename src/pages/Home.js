@@ -10,12 +10,22 @@ import {
   StatusBar,
   ScrollView,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  FlatList
 } from "react-native";
+
+import { imageAssets } from "../components/ImageAssets";
 
 const { width } = Dimensions.get("window");
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    // const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    // this.state = {
+    //   dataSource: ds.cloneWithRows(imageAssets)
+    // };
+  }
   render() {
     return (
       <TouchableWithoutFeedback
@@ -38,46 +48,16 @@ class Home extends Component {
               />
             </View>
           </View>
-          <ScrollView>
-            <View style={{ flexDirection: "row" }}>
+          <FlatList
+            data={imageAssets}
+            numColumns={3}
+            keyExtractor={({ index }) => index + ""}
+            renderItem={({ item, index }) => (
               <TouchableOpacity>
-                <Image source={require("../assets/images/cacmoncom.jpg")} style={styles.itemsImage} />
+                <Image style={styles.itemsImage} source={item} />
               </TouchableOpacity>
-              <TouchableOpacity>
-                <Image source={require("../assets/images/cacmoncanh.jpg")} style={styles.itemsImage} />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image source={require("../assets/images/monnuong.jpg")} style={styles.itemsImage} />
-              </TouchableOpacity>
-            </View>
-            <View style={{ flexDirection: "row" }}>
-              <TouchableOpacity>
-                <Image source={require("../assets/images/ngucoc.jpg")} style={styles.itemsImage} />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image source={require("../assets/images/monchay.jpg")} style={styles.itemsImage} />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image source={require("../assets/images/douong.jpg")} style={styles.itemsImage} />
-              </TouchableOpacity>
-            </View>
-            <View style={{ flexDirection: "row" }}>
-              <TouchableOpacity>
-                <Image source={require("../assets/images/haisan.jpg")} style={styles.itemsImage} />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image source={require("../assets/images/cacmonthit.jpg")} style={styles.itemsImage} />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image source={require("../assets/images/cacmonsalad.jpg")} style={styles.itemsImage} />
-              </TouchableOpacity>
-            </View>
-            <View style={{ flexDirection: "row" }}>
-              <TouchableOpacity>
-                <Image source={require("../assets/images/raucuqua.jpg")} style={styles.itemsImage} />
-              </TouchableOpacity>
-            </View>
-          </ScrollView>
+            )}
+          />
         </View>
       </TouchableWithoutFeedback>
     );
@@ -112,9 +92,9 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   itemsImage: {
-    width: width / 3 - 6,
-    height: width / 3 - 6,
-    margin: 2,
+    width: width / 3 - 3,
+    height: width / 3 - 3,
+    margin: 1,
     borderWidth: 1,
     borderColor: "white"
   }
