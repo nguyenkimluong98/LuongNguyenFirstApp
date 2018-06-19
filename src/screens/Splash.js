@@ -3,14 +3,15 @@ import { StyleSheet, Text, View, StatusBar } from "react-native";
 
 import App from "../../App";
 import Logo from "../components/Logo";
+import Login from "../pages/Login";
 
 class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      changeScreen: false
+      changeScreen: true
     };
-    setInterval(() => this.setState({ changeScreen: true }), 3000);
+    //setInterval(() => this.setState({ changeScreen: true }), 3000);
   }
 
   render() {
@@ -22,6 +23,7 @@ class Splash extends Component {
         <Logo title="Luong Nguyen's Awsome App" />
       </View>
     );
+
     return comps;
   }
 }

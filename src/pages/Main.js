@@ -3,16 +3,18 @@ import { Image } from "react-native";
 
 import { createBottomTabNavigator } from "react-navigation";
 
-import Home from "./Home";
-import Addition from "./Addition";
-import Notification from "./Notification";
-import NewsFeed from "./NewsFeed";
+import Home from "../screens/Home";
+import Addition from "../screens/Addition";
+import Notification from "../screens/Notification";
+import NewsFeed from "../screens/NewsFeed";
+import MyFoods from "../screens/MyFoods";
 
 class Main extends Component {
   static navigationOptions = {
     header: null
   };
   render() {
+    global.stackNavigation = this.props.navigation;
     return <TabbarBottom />;
   }
 }
@@ -29,6 +31,9 @@ const TabbarBottom = createBottomTabNavigator(
     },
     Notification: {
       screen: Notification
+    },
+    MyFoods: {
+      screen: MyFoods
     },
     Addition: {
       screen: Addition
@@ -54,6 +59,10 @@ const TabbarBottom = createBottomTabNavigator(
           iconName = focused
             ? require("../assets/icons/IconNotificationBlue.png")
             : require("../assets/icons/IconNotificationGray.png");
+        } else if (routeName === "MyFoods") {
+          iconName = focused
+            ? require("../assets/icons/IconMyFoodsBlue.png")
+            : require("../assets/icons/IconMyFoodsGray.png");
         } else if (routeName === "Addition") {
           iconName = focused
             ? require("../assets/icons/IconAdditionBlue.png")

@@ -14,6 +14,10 @@ import Logo from "../components/Logo";
 import Form from "../components/Form";
 
 class Login extends Component {
+  static navigationOptions = {
+    headerStyle: { backgroundColor: "#455a64" }
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +33,7 @@ class Login extends Component {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <View style={{ flex: 5, marginTop: 60 }}>
+          <View style={{ flex: 5, marginTop: 20 }}>
             <StatusBar backgroundColor="#1c313a" barStyle="light-content" />
             <Logo title="Login to see incredble things" />
             <Form type="Login" navigation={this.props.navigation} setShowKeyboard={this.setShowKeyboard.bind(this)} />
@@ -88,7 +92,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#455a64"
   },
   signupTextContent: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
     alignItems: "flex-end",
     marginVertical: 16,
@@ -110,7 +114,9 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     paddingVertical: 12,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    position: "relative",
+    top: 10
   },
   textLogin: {
     fontSize: 16,
@@ -133,8 +139,7 @@ const styles = StyleSheet.create({
   rowButtonMoreLogin: {
     flexDirection: "row",
     justifyContent: "space-around",
-    position: "relative",
-    top: 10
+    position: "relative"
   },
   buttonMoreLogin: {
     flexDirection: "row",

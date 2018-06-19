@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-class NewsFeed extends Component {
+class MyFoods extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>NewsFeed</Text>
+        <Text>MyFoods</Text>
       </View>
     );
   }
 }
 
-export default NewsFeed;
+export default MyFoods;
 
 const styles = StyleSheet.create({
   container: {

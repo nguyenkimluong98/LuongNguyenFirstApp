@@ -1,31 +1,28 @@
 import React, { Component } from "react";
 import {
   StyleSheet,
-  Text,
   View,
   TextInput,
   Image,
   Keyboard,
   TouchableWithoutFeedback,
   StatusBar,
-  ScrollView,
-  Dimensions,
-  TouchableOpacity,
-  FlatList
+  TouchableOpacity
 } from "react-native";
 
-import { imageAssets } from "../components/ImageAssets";
-
-const { width } = Dimensions.get("window");
-
-class Home extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
-    // const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    // this.state = {
-    //   dataSource: ds.cloneWithRows(imageAssets)
-    // };
+    this.state = {
+      alertColor: null
+    };
   }
+
+  changeAlertTintColor = () => {
+    if (this.state.alertColor === null) this.setState({ alertColor: "red" });
+    else this.setState({ alertColor: null });
+  };
+
   render() {
     return (
       <TouchableWithoutFeedback
@@ -35,7 +32,10 @@ class Home extends Component {
       >
         <View style={styles.container}>
           <StatusBar backgroundColor="#1c313a" barStyle="light-content" />
-          <View style={{ height: 60, flexDirection: "row", backgroundColor: "#1c313a" }}>
+          <View style={{ height: 60, flexDirection: "row", backgroundColor: "#1c313a", alignItems: "center" }}>
+            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+              <Image source={require("../assets/icons/IconBack.png")} style={[styles.headerImage, { marginLeft: 8 }]} />
+            </TouchableOpacity>
             <View style={styles.header}>
               <Image source={require("../assets/icons/IconSearch.png")} style={styles.headerImage} />
               <TextInput
@@ -47,29 +47,24 @@ class Home extends Component {
                 onSubmitEditing={Keyboard.dismiss}
               />
             </View>
+            <TouchableOpacity onPress={this.changeAlertTintColor}>
+              <Image
+                source={require("../assets/icons/IconAlert.png")}
+                style={[styles.headerImage, { position: "relative", right: 5, tintColor: this.state.alertColor }]}
+              />
+            </TouchableOpacity>
           </View>
-          <FlatList
-            data={imageAssets}
-            numColumns={3}
-            keyExtractor={({ index }) => index + ""}
-            renderItem={({ item, index }) => (
-              <TouchableOpacity>
-                <Image style={styles.itemsImage} source={item} />
-              </TouchableOpacity>
-            )}
-          />
         </View>
       </TouchableWithoutFeedback>
     );
   }
 }
 
-export default Home;
+export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#455a64",
+    height: 60,
     alignItems: "center",
     justifyContent: "flex-start"
   },
@@ -90,12 +85,5 @@ const styles = StyleSheet.create({
     width: 25,
     resizeMode: "stretch",
     alignItems: "center"
-  },
-  itemsImage: {
-    width: width / 3 - 3,
-    height: width / 3 - 3,
-    margin: 1,
-    borderWidth: 1,
-    borderColor: "white"
   }
 });
